@@ -23,6 +23,9 @@ sudo sed -i '1i\'"$masterip $masterfqdn puppetmaster" /etc/hosts
 #Insert servername
 sudo sed -i "1 a server=\\$masterfqdn" /etc/puppet/puppet.conf
 
+#get docker
+sudo wget -qO- https://get.docker.com/ | sh
+
 #Start the agent
 sudo puppet resource service puppet ensure=running enable=true
 
